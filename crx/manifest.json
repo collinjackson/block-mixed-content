@@ -1,0 +1,18 @@
+{
+  "name": "Block Mixed Content",
+  "version": "0.1",
+  "description": "Block insecure content on secure pages.",
+  "icons": {
+    "16": "icon-16.jpg",
+    "32": "icon-32.jpg",
+    "48": "icon-48.jpg",
+    "128": "icon-128.jpg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["block-mixed-content.js"],
+      "run_at": "document_start"
+    }
+  ],
+}
