@@ -3,10 +3,10 @@
   "version": "0.1",
   "description": "Block insecure content on secure pages.",
   "icons": {
-    "16": "icon-16.jpg",
-    "32": "icon-32.jpg",
-    "48": "icon-48.jpg",
-    "128": "icon-128.jpg"
+    "16": "icon-16.png",
+    "32": "icon-32.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
   },
   "content_scripts": [
     {
@@ -15,4 +15,5 @@
       "run_at": "document_start"
     }
   ],
+  "background_page": "background.html"
 }
