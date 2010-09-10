@@ -8,7 +8,7 @@
     document.addEventListener('beforeload', function() {
         if (!event.url.match(/^http:/i))
             return;
-        // Block the mixed content (optional).
+        // Block the mixed content.
         event.preventDefault();
 
         // Prepare a report about the vulnerability.
