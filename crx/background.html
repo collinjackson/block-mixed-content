@@ -1,18 +1,18 @@
 <html>
 <body>
 <script>
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-18478007-1']);
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-18478007-1']);
 </script>
 <script async src="https://ssl.google-analytics.com/ga.js"></script>
 <script>
-  chrome.extension.onRequest.addListener(
-    function(request, sender, sendResponse) {
-      _gaq.push(['_trackEvent',
-                 'Mixed Content ' + request.target_node_name, 
-                 request.document_url,
-                 JSON.stringify(request)]);
-  });
+chrome.extension.onRequest.addListener(
+  function(request, sender, sendResponse) {
+    _gaq.push(['_trackEvent',
+               'Mixed Content ' + request.target_node_name, 
+               request.document_url,
+               JSON.stringify(request)]);
+});
 </script>
 </body>
 </html>
