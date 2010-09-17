@@ -8,22 +8,25 @@
     document.addEventListener('beforeload', function() {
         if (!event.url.match(/^http:/i))
             return;
-        // Block the mixed content.
-        event.preventDefault();
 
-        // Prepare a report about the vulnerability.
-        var vulnerability_report = {
-            'insecure_url': event.url,
-            'document_url': document.location.href,
-            'target_node_name': event.target.nodeName,
-            'target_id': event.target.getAttribute('id')
-        };
-
-        // Send the report to the extension's background page.
-        chrome.extension.sendRequest(vulnerability_report);
+        // We allow insecure images, audio, and video because those resource
+        // are not as dangerous as scripts because a compromised script can
+        // make arbitray modifications to the page.
+        var node_name = event.target.nodeName;
+        if (node_name != 'IMG' && node_name != 'AUDIO' && node_name != 'VIDEO') {
+            // Block the mixed content.
+            event.preventDefault();
+        }
 
         // If you'd like to report the vulnerability to your own server, you
         // can use XMLHttpRequest:
+        //
+        // var vulnerability_report = {
+        //     'insecure_url': event.url,
+        //     'document_url': document.location.href,
+        //     'target_node_name': event.target.nodeName,
+        //     'target_id': event.target.getAttribute('id')
+        // };
         //
         // var xhr = new XMLHttpRequest();
         // xhr.open('POST', '/report-mixed-content.php');

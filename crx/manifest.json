@@ -1,6 +1,6 @@
 {
   "name": "Block Mixed Content",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Block insecure content on secure pages.",
   "icons": {
     "16": "icon-16.png",
@@ -14,6 +14,5 @@
       "js": ["block-mixed-content.js"],
       "run_at": "document_start"
     }
-  ],
-  "background_page": "background.html"
+  ]
 }
