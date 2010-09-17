@@ -10,8 +10,9 @@
             return;
 
         // We allow insecure images, audio, and video because those resource
-        // are not as dangerous as scripts because a compromised script can
-        // make arbitray modifications to the page.
+        // are not as dangerous as scripts.  A compromised script can make
+        // arbitray modifications to the page whereas an insecure image can
+        // only affect the contents of the image.
         var node_name = event.target.nodeName;
         if (node_name != 'IMG' && node_name != 'AUDIO' && node_name != 'VIDEO') {
             // Block the mixed content.
